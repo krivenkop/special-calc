@@ -1,10 +1,10 @@
 <template>
   <transition name="fade">
-    <div v-show="show">
+    <div class="result-container" v-show="show">
       <div class="row">
         <div class="col">
           <div class="result">
-            <h3 class="calc__title">Результат</h3>
+            <h2 class="calc__title">Результат</h2>
           </div>
         </div>
       </div>

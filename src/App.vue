@@ -2,7 +2,7 @@
   <div id="app">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 offset-lg-3">
+        <div class="col-lg-6">
 
           <form action="#" class="calc__form">
 
@@ -76,14 +76,15 @@
             <PartsPanel :show="showPartsPanel"
                         :data.sync="partsSize"
                         :block-list="partBlocks"/>
-
-            <Result :show="showResult"
-                    :wall-volume="TotalWallVolume"
-                    :windows-volume="getWindowsVolume"
-                    :count-part-blocks="countPartBlocks"
-                    :count-blocks="countBlocks"/>
           </form>
 
+        </div>
+        <div class="col-lg-6">
+          <Result :show="showResult"
+                  :wall-volume="TotalWallVolume"
+                  :windows-volume="getWindowsVolume"
+                  :count-part-blocks="countPartBlocks"
+                  :count-blocks="countBlocks"/>
         </div>
       </div>
     </div>
@@ -210,10 +211,7 @@ export default {
     showResult() {
       return Boolean(this.boxSize.height &&
               this.boxSize.width &&
-              this.boxSize.length &&
-              this.getCurBlock &&
-              this.partsParams.len &&
-              this.getCurPartBlock);
+              this.boxSize.length);
     },
     calcPartWallVolume() {
       return this.calcPartArea * this.wallWidth;
@@ -309,6 +307,19 @@ export default {
 
   .text-center
     text-align: center
+
+  .result-container
+    margin-top: 80px
+    padding: 0 20px 30px 20px
+    box-shadow: 3px 2px 10px 0 #666
+    .calc__title
+      display: block
+      width: 100%
+      text-align: center
+      color: #444444
+      margin-top: 0
+      margin-bottom: 10px
+      margin-top: 20px
 
   .calc__form
     display: block
