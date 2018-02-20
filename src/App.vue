@@ -128,7 +128,7 @@ export default {
         count: '',
       },
       partsSize: {
-        curBlock: -1,
+        curBlock: 1,
         len: '',
       },
       wallWidth: 0.4,
