@@ -11,7 +11,9 @@
             </div>
             <div class="row">
               <div class="col">
+                <label for="height">Высота, в блоках</label>
                 <input name="height"
+                       id="height"
                        v-model="boxSize.height"
                        type="number"
                        placeholder="Высота(кирпичи)">
@@ -21,7 +23,9 @@
             </div>
             <div class="row">
               <div class="col">
+                <label for="width">Ширина, м</label>
                 <input name="width"
+                       id="width"
                        v-model="boxSize.width"
                        type="number"
                        placeholder="Ширина(м)">
@@ -29,7 +33,9 @@
             </div>
             <div class="row">
               <div class="col">
+                <label for="length">Длина, м</label>
                 <input name="length"
+                       id="length"
                        v-model="boxSize.length"
                        type="number"
                        placeholder="Длина(м)">
@@ -59,11 +65,13 @@
             <div class="row">
               <div class="col d-flex justify-content-center flex-row">
                 <p class="show-windows"
-                   v-on:click="showWindowsPanel = !showWindowsPanel">
+                   v-on:click="showWindowsPanel = !showWindowsPanel"
+                   v-bind:class="{ active: showWindowsPanel}">
                   Окна и двери
                 </p>
                 <p class="show-parts"
-                   v-on:click="showPartsPanel = !showPartsPanel">
+                   v-on:click="showPartsPanel = !showPartsPanel"
+                   v-bind:class="{ active: showPartsPanel}">
                   Посчитать перегородки
                 </p>
               </div>
@@ -317,7 +325,6 @@ export default {
       width: 100%
       text-align: center
       color: #444444
-      margin-top: 0
       margin-bottom: 10px
       margin-top: 20px
 
@@ -359,6 +366,12 @@ export default {
       background-color: transparent
       border: 2px solid #222
       margin-bottom: 0
+      transition: all 0.4s
+      user-select: none
+      &.active
+        background-color: #742657
+        border: 2px solid darken(#742657, 20)
+        color: #ffffff
     .show-parts
       cursor: pointer
       display: block
@@ -367,6 +380,12 @@ export default {
       background-color: transparent
       border: 2px solid #222
       margin-bottom: 0
+      user-select: none
+      &.active
+        background-color: #742657
+        border: 2px solid darken(#742657, 20)
+        color: #ffffff
+        transition: all 0.4s
     .calc__title
       display: block
       width: 100%

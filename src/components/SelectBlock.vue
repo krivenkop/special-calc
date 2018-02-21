@@ -1,18 +1,22 @@
 <template>
-  <select name="block-type"
-          v-model="currentBlockId"
-          @change="onSelectOption()">
-    <!--<option value="-1"-->
-            <!--disabled-->
-            <!--selected>-->
+  <div>
+    <label for="block-type">Выберите блок</label>
+    <select name="block-type"
+            id="block-type"
+            v-model="currentBlockId"
+            @change="onSelectOption()">
+      <!--<option value="-1"-->
+      <!--disabled-->
+      <!--selected>-->
       <!--Виберите тип блока-->
-    <!--</option>-->
-    <option v-for="block in blockList"
-            :key="block.id"
-            v-bind:value="block.id">
-      {{block.title}}
-    </option>
-  </select>
+      <!--</option>-->
+      <option v-for="block in blockList"
+              :key="block.id"
+              v-bind:value="block.id">
+        {{block.title}}
+      </option>
+    </select>
+  </div>
 </template>
 
 <script>

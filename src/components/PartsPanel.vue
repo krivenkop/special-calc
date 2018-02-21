@@ -8,7 +8,9 @@
       </div>
       <div class="row">
         <div class="col">
+          <label for="part-block-type">Выберите блок</label>
           <select name="part-block-type"
+                  id="part-block-type"
                   v-model="data.curBlock">
             <option value="-1"
                     disabled
@@ -25,7 +27,9 @@
       </div>
       <div class="row">
         <div class="col">
-          <input name="height"
+          <label for="length-part">Длина, м</label>
+          <input name="length-part"
+                 id="length-part"
                  v-model="data.len"
                  type="number"
                  placeholder="Длина(м)">

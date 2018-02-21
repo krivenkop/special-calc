@@ -8,7 +8,9 @@
       </div>
       <div class="row">
         <div class="col">
-          <input name="height"
+          <label for="height-w">Высота, м</label>
+          <input name="height-w"
+                 id="height-w"
                  v-model="windowsSize.height"
                  type="number"
                  placeholder="Высота окна(м)">
@@ -16,7 +18,9 @@
       </div>
       <div class="row">
         <div class="col">
-          <input name="width"
+          <label for="width-w">Ширина, м</label>
+          <input name="width-w"
+                 id="width-w"
                  v-model="windowsSize.width"
                  type="number"
                  placeholder="Ширина окна(м)">
@@ -24,7 +28,9 @@
       </div>
       <div class="row">
         <div class="col">
-          <input name="length"
+          <label for="count-w">Кол-во</label>
+          <input name="count-w"
+                 id="count-w"
                  v-model="windowsSize.count"
                  type="number"
                  placeholder="Кол-во">
@@ -39,7 +45,9 @@
 
       <div class="row">
         <div class="col">
-          <input name="height"
+          <label for="height-d">Высота, м</label>
+          <input name="height-d"
+                 id="height-d"
                  v-model="doorsSize.height"
                  type="number"
                  placeholder="Высота двери(м)">
@@ -47,7 +55,9 @@
       </div>
       <div class="row">
         <div class="col">
-          <input name="width"
+          <label for="width-d">Ширина, м</label>
+          <input name="width-d"
+                 id="width-d"
                  v-model="doorsSize.width"
                  type="number"
                  placeholder="Ширина двери(м)">
@@ -55,7 +65,9 @@
       </div>
       <div class="row">
         <div class="col">
-          <input name="length"
+          <label for="count-d">Кол-во</label>
+          <input name="count-d"
+                 id="count-d"
                  v-model="doorsSize.count"
                  type="number"
                  placeholder="Кол-во">
