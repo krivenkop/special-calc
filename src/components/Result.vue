@@ -10,10 +10,14 @@
       </div>
       <div class="row">
         <div class="col">
+          <p>Выбранный блок: {{ curBlock.title }}. Размеры {{ curBlock.size }}</p>
+          <p>Площадь стен: {{ wallArea }}</p>
+          <p>Кол-во блоков для кладки: {{ countBlocks }}</p>
           <p>Обьем кладки: {{ wallVolume.toFixed(2) }}м.куб.</p>
+          <p>Цена за все блоки: {{ countBlocks * curBlock.total_price }}</p>
+          <p>****************************************</p>
           <p>Без окон: {{ (wallVolume - windowsVolume).toFixed(2) }}</p>
           <p>Кол-во блоков для перегородки: {{ countPartBlocks }}</p>
-          <p>Кол-во блоков для кладки: {{ countBlocks }}</p>
         </div>
       </div>
     </div>
@@ -26,9 +30,11 @@ export default {
   props: [
     'show',
     'wallVolume',
+    'wallArea',
     'windowsVolume',
     'countPartBlocks',
     'countBlocks',
+    'curBlock',
   ],
 };
 </script>

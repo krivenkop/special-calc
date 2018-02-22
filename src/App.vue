@@ -7,7 +7,7 @@
           <form action="#" class="calc__form">
 
             <div class="row">
-              <h2>Калькулятор</h2>
+              <h2>Основные параметры</h2>
             </div>
             <div class="row">
               <div class="col">
@@ -90,9 +90,11 @@
         <div class="col-lg-6">
           <Result :show="showResult"
                   :wall-volume="TotalWallVolume"
+                  :wall-area="calcWallArea"
                   :windows-volume="getWindowsVolume"
                   :count-part-blocks="countPartBlocks"
-                  :count-blocks="countBlocks"/>
+                  :count-blocks="countBlocks"
+                  :cur-block="getCurBlock"/>
         </div>
       </div>
     </div>
@@ -148,8 +150,9 @@ export default {
           width: 400,
           height: 400,
           weight: 170,
-          size: '1200,400,400',
+          size: '1200x400x400',
           amount: 0.192,
+          total_price: 12,
         },
         {
           id: 2,
@@ -158,8 +161,9 @@ export default {
           width: 200,
           height: 200,
           weight: 14,
-          size: '400,200,200',
+          size: '400x200x200',
           amount: 0.016,
+          total_price: 16,
         }],
       partBlocks: [
         {
@@ -183,7 +187,7 @@ export default {
   computed: {
     boxParams() {
       return {
-        height: this.boxSize.height === '' ? 0 : (+this.boxSize.height *
+        height: this.boxSize.height === '' ? 0 : +(+this.boxSize.height *
           (this.getCurBlock.height / 1000)).toFixed(2),
         width: this.boxSize.width === '' ? 0 : +this.boxSize.width,
         len: this.boxSize.length === '' ? 0 : +this.boxSize.length,
@@ -252,6 +256,10 @@ export default {
       let curPartBlock = this.partBlocks[partBlockId - 1];
       return (curPartBlock.length * curPartBlock.height) / 100000;
     },
+    calcWallArea() {
+      return ((this.boxParams.height * this.boxParams.len) +
+        (this.boxParams.height * this.boxParams.width)).toFixed(2);
+    },
     countPartBlocks() {
       let clearPartArea = this.calcPartArea -
         (this.doorsParams.width *
@@ -317,7 +325,6 @@ export default {
     text-align: center
 
   .result-container
-    margin-top: 80px
     padding: 0 20px 30px 20px
     box-shadow: 3px 2px 10px 0 #666
     .calc__title
@@ -332,7 +339,6 @@ export default {
     display: block
     box-shadow: 3px 2px 10px 0 #666
     padding: 0 20px 30px 20px
-    margin-top: 80px
     margin-bottom: 80px
     h2
       color: #333333
